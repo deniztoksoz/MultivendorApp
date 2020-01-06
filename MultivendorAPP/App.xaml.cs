@@ -22,7 +22,7 @@ namespace MultivendorAPP
 
             else
             {
-                MainPage = new NavigationPage(new RegisterPage());
+                MainPage = new NavigationPage(new LoginPage());
             }
 
         }

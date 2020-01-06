@@ -6,53 +6,55 @@
              xmlns:local="clr-namespace:MultivendorAPP.ViewModels"
              mc:Ignorable="d"
              x:Class="MultivendorAPP.Views.RegisterPage"
-             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasNavigationBar="True"
              >
     <ContentPage.BindingContext>
         <local:RegisterViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout BackgroundColor="#F3F3F3">
-            
-            <StackLayout Margin="15,80,0,0">
-                <Label Text="Sign in" TextColor="#4AD69E" FontSize="Large" FontAttributes="Bold"/>
-            </StackLayout>
 
-            <StackLayout Margin="15">
-                <Frame BackgroundColor="White"  BorderColor="Transparent" HasShadow="False">
-                    <StackLayout Margin="5">
-                        <StackLayout Padding="0" >
-                            <Label Text="Email" TextColor="#4AD69E" FontSize="Small" Margin="0"/>
-                            <Entry Text="" Placeholder="example@exple.com" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
-                        </StackLayout>
-                        <StackLayout>
-                            <Label Text="Password" TextColor="#4AD69E" FontSize="Small" Margin="0"/>
-                            <Entry Text="" Placeholder="example@exple.com" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
-                        </StackLayout>
-
-                        <StackLayout>
-                            <Label Text="Forgot password?" TextColor="Gray" FontSize="Small" HorizontalOptions="EndAndExpand" Margin="0"/>
-                            <Button Text="sign in" BackgroundColor="#4AD69E" TextColor="White"/>
-                        </StackLayout>
-                        
+            <ScrollView>
+                <StackLayout VerticalOptions="StartAndExpand">
+                    <StackLayout Margin="15,30,0,0">
+                        <Label Text="Create an Account" TextColor="#4AD69E" FontSize="Large" FontAttributes="Bold"/>
                     </StackLayout>
-             
-                </Frame>
-            </StackLayout>
 
-            <StackLayout Margin="10" HorizontalOptions="CenterAndExpand">
-                <Label Text="Don't have any account yet?" TextColor="Gray" HorizontalTextAlignment="Center" FontSize="Small"/>
-                <Label Text="Register now" HorizontalTextAlignment="Center" TextColor="#4AD69E" FontAttributes="Bold" FontSize="Small">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer />
-                    </Label.GestureRecognizers>
-                </Label>
-            </StackLayout>
+                    <StackLayout Margin="15">
+                        <Label Text="Full Name" TextColor="#4AD69E" FontSize="Small" Margin="0"/>
+                        <Entry Text="{Binding Name}" Placeholder="John Doe" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
 
-            <StackLayout Margin="5" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
-                <Image Source="https://pngimage.net/wp-content/uploads/2018/06/logo-placeholder-png.png" Aspect="AspectFit" HeightRequest="90"/>
-            </StackLayout>
+                        <Label Text="Email" TextColor="#4AD69E" FontSize="Small" Margin="0"/>
+                        <Entry Text="{Binding Email}" Placeholder="example@exple.com" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
+
+                        <Label Text="Password" TextColor="{Binding Error}" FontSize="Small" Margin="0"/>
+                        <Entry Text="{Binding Password}" Placeholder="******" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
+
+                        <Label Text="Confirm password" TextColor="{Binding Error}" FontSize="Small" Margin="0"/>
+                        <Entry Text="{Binding Compass}" Placeholder="******" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
+
+                        <Label Text="Address" TextColor="#4AD69E" FontSize="Small" Margin="0"/>
+                        <Editor Text="{Binding Address}" AutoSize="TextChanges"  Placeholder="Address" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
+
+                        <Label Text="Phone number" TextColor="#4AD69E" FontSize="Small" Margin="0"/>
+                        <Entry Text="{Binding Phone}" Placeholder="+60" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
+
+                        <Label Text="Facebook" TextColor="#4AD69E" FontSize="Small" Margin="0"/>
+                        <Entry Text="{Binding Facebook}" Placeholder="Johndoe" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
+
+                        <Label Text="Level" TextColor="#4AD69E" FontSize="Small" Margin="0"/>
+                        <Picker Margin="0,-16,0,10" ItemsSource="{Binding LevelPicker}"  HorizontalOptions="FillAndExpand"></Picker>
+                    </StackLayout>
+                </StackLayout>
+                
+            </ScrollView>
             
+
+            <StackLayout Margin="15"  VerticalOptions="EndAndExpand">
+                <Button Text="Register" Command="{Binding CreateAcc}" CornerRadius="10" BackgroundColor="#4AD69E"  TextColor="White"/>
+            </StackLayout>
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
