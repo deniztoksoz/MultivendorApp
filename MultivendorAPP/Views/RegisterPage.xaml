@@ -49,8 +49,8 @@
                 </Label>
             </StackLayout>
 
-            <StackLayout VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
-                <Image Source="https://image.flaticon.com/icons/svg/1312/1312313.svg" Aspect="AspectFit" HeightRequest="50"/>
+            <StackLayout Margin="5" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
+                <Image Source="https://pngimage.net/wp-content/uploads/2018/06/logo-placeholder-png.png" Aspect="AspectFit" HeightRequest="90"/>
             </StackLayout>
             
         </StackLayout>
