@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:MultivendorAPP.ViewModels"
+             mc:Ignorable="d"
+             x:Class="MultivendorAPP.Views.RegisterPage"
+             NavigationPage.HasNavigationBar="False"
+             >
+    <ContentPage.BindingContext>
+        <local:RegisterViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#F3F3F3">
+            
+            <StackLayout Margin="15,80,0,0">
+                <Label Text="Sign in" TextColor="#4AD69E" FontSize="Large" FontAttributes="Bold"/>
+            </StackLayout>
+
+            <StackLayout Margin="15">
+                <Frame BackgroundColor="White"  BorderColor="Transparent" HasShadow="False">
+                    <StackLayout Margin="5">
+                        <StackLayout Padding="0" >
+                            <Label Text="Email" TextColor="#4AD69E" FontSize="Small" Margin="0"/>
+                            <Entry Text="" Placeholder="example@exple.com" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                        <StackLayout>
+                            <Label Text="Password" TextColor="#4AD69E" FontSize="Small" Margin="0"/>
+                            <Entry Text="" Placeholder="example@exple.com" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+
+                        <StackLayout>
+                            <Label Text="Forgot password?" TextColor="Gray" FontSize="Small" HorizontalOptions="EndAndExpand" Margin="0"/>
+                            <Button Text="sign in" BackgroundColor="#4AD69E" TextColor="White"/>
+                        </StackLayout>
+                        
+                    </StackLayout>
+             
+                </Frame>
+            </StackLayout>
+
+            <StackLayout Margin="10" HorizontalOptions="CenterAndExpand">
+                <Label Text="Don't have any account yet?" TextColor="Gray" HorizontalTextAlignment="Center" FontSize="Small"/>
+                <Label Text="Register now" HorizontalTextAlignment="Center" TextColor="#4AD69E" FontAttributes="Bold" FontSize="Small">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+
+            <StackLayout VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
+                <Image Source="https://image.flaticon.com/icons/svg/1312/1312313.svg" Aspect="AspectFit" HeightRequest="50"/>
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
