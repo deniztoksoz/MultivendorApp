@@ -1,5 +1,6 @@
 ﻿using MultivendorAPP.Models;
 using MultivendorAPP.Services;
+using MultivendorAPP.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -62,7 +63,7 @@ namespace MultivendorAPP.ViewModels
 
             if (result)
             {
-
+                await App.Current.MainPage.Navigation.PushAsync(new SuccessRegister());
             }
 
             else

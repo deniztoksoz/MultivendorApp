@@ -20,14 +20,17 @@
                             <Label Text="Search by" TextColor="#4AD69E" FontSize="Small" FontAttributes="None"/>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
-                            <Picker BackgroundColor="White" TextColor="Gray"  WidthRequest="90"/>
-                            <Entry BackgroundColor="White" PlaceholderColor="#4AD69E" Placeholder="'Iskandar'" HorizontalOptions="FillAndExpand"/>
+                            <Picker Visual="Custom" BackgroundColor="White" TextColor="Gray"  WidthRequest="90"/>
+                            <Frame BackgroundColor="White" BorderColor="#4AD69E" Padding="0" HorizontalOptions="FillAndExpand"> 
+                                <Entry Margin="0" Visual="Custom" BackgroundColor="White" PlaceholderColor="#4AD69E" Placeholder="'Iskandar'" HorizontalOptions="FillAndExpand"/>
+                            </Frame>
+                         
                         </StackLayout>
                         <StackLayout>
                             <Button Text="Search" BackgroundColor="#4AD69E" TextColor="White"/>
                         </StackLayout>
                     </StackLayout>
-                    <StackLayout Margin="10,0,0,0">
+                    <StackLayout Margin="0,0,0,0">
                         <CollectionView ItemsSource="{Binding Stokis}" SelectedItem="{Binding SelectedTime}" SelectionMode="Single">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
@@ -64,7 +67,7 @@
             </ScrollView>
             
             <StackLayout Margin="15">
-                <Button Text="Register" BackgroundColor="#4AD69E" TextColor="White"/>
+                <Button Text="Register" Command="{Binding RegisterCommand}" BackgroundColor="#4AD69E" TextColor="White"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

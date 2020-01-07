@@ -133,7 +133,7 @@ namespace MultivendorAPP.ViewModels
 
                         if (result)
                         {
-
+                           await App.Current.MainPage.Navigation.PushAsync(new SuccessRegister());
                         }
 
                         else

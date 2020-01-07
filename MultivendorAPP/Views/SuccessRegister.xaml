@@ -5,15 +5,36 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:MultivendorAPP.ViewModels"
              mc:Ignorable="d"
-             x:Class="MultivendorAPP.Views.SuccessRegister">
+             x:Class="MultivendorAPP.Views.SuccessRegister"
+             NavigationPage.HasNavigationBar="False"
+             >
     <ContentPage.BindingContext>
         <local:SuccessViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout BackgroundColor="#F3F3F3">
+
+            <StackLayout Margin="15,80,0,0">
+                <Label Text="Successful register" TextColor="#4AD69E" FontSize="Large" FontAttributes="Bold"/>
+            </StackLayout>
+
+            <StackLayout Margin="15" HorizontalOptions="CenterAndExpand">
+                <Image Source="https://c7.uihere.com/icons/428/739/755/wait-for-f8114f63007d60597b7fa429a5a0c245.png" Aspect="AspectFit" HeightRequest="80" />
+            </StackLayout>
+
+            <StackLayout Margin="10" HorizontalOptions="CenterAndExpand">
+
+                <Label Text="Your account are been review by stokis/master" HorizontalTextAlignment="Center" TextColor="#4AD69E" FontAttributes="Bold" FontSize="Small"/>
+                <Label Text="come back later after your account has been approve." HorizontalTextAlignment="Center" TextColor="#4AD69E" FontAttributes="Bold" FontSize="Small"/>
+                <Label Text="We will notify you vie email." HorizontalTextAlignment="Center" TextColor="#4AD69E" Margin="0,10,0,0" FontAttributes="Bold" FontSize="Small"/>
+
+
+            </StackLayout>
+
+            <StackLayout Margin="15" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand">
+                <Button Text="sign in" Command="{Binding BackLoginCommand}" BackgroundColor="White" TextColor="#4AD69E" BorderColor="#4AD69E"/>
+            </StackLayout>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
