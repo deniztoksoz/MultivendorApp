@@ -11,5 +11,12 @@ namespace MultivendorAPP.Services
 
         Task<List<Users>> getStokis();
 
+
+        //---------------------Get Agent Pending Approve
+        Task<List<Users>> penAgent(int id);
+
+        Task<bool> ApproveAgent(int id);
+
+
     }
 }

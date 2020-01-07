@@ -4,6 +4,8 @@ using Xamarin.Forms.Xaml;
 using MultivendorAPP.Services;
 using MultivendorAPP.Views;
 using Xamarin.Essentials;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 
 namespace MultivendorAPP
 {
@@ -17,9 +19,28 @@ namespace MultivendorAPP
             DependencyService.Register<IAuth, Auth>();
             DependencyService.Register<IStokis, Stokis>();
 
+
+
             if (!String.IsNullOrEmpty(Preferences.Get("token", "")))
             {
-                MainPage = new AppShell();
+
+
+                var stream = Preferences.Get("token", "");
+                var handler = new JwtSecurityTokenHandler();
+                var jsonToken = handler.ReadJwtToken(stream);
+                var tokenS = handler.ReadJwtToken(stream) as JwtSecurityToken;
+
+                var jti = tokenS.Claims.First(claim => claim.Type == "role").Value;
+                if(jti == "Stokis")
+                {
+                    MainPage = new AppShellStokis();
+                }
+
+                else
+                {
+                    MainPage = new AppShell();
+                }
+            
               
             }
 

@@ -27,7 +27,7 @@
                         </StackLayout>
                         <StackLayout>
                             <Label Text="Password" TextColor="#4AD69E" FontSize="Small" Margin="0"/>
-                            <Entry Text="{Binding User.Password}" Placeholder="example@exple.com" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
+                            <Entry Text="{Binding User.Password}" IsPassword="True"  Placeholder="example@exple.com" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
                         </StackLayout>
 
                         <StackLayout IsVisible="{Binding Loading}">

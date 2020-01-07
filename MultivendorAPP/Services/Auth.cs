@@ -27,13 +27,14 @@ namespace MultivendorAPP.Services
 
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            HttpResponseMessage response = await client.PostAsync(url, content);
+            HttpResponseMessage response = await client.PostAsync(url,content);
 
-            string result = response.ToString();
+            string result = await response.Content.ReadAsStringAsync();
 
-            if (response.StatusCode == System.Net.HttpStatusCode.Created)
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 var JsonResult = JsonConvert.DeserializeObject<Token>(result);
+                return JsonResult;
             }
 
 

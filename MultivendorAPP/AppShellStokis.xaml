@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
-       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-       xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-       mc:Ignorable="d"
-       xmlns:local="clr-namespace:MultivendorAPP.Views"
-       Title="MultivendorAPP"
-       x:Class="MultivendorAPP.AppShell">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:MultivendorAPP.Views"
+             x:Class="MultivendorAPP.AppShellStokis">
 
-    <!-- 
-        Styles and Resources 
-    -->
     <Shell.Resources>
         <ResourceDictionary>
             <Color x:Key="NavigationPrimary">#2196F3</Color>
@@ -31,13 +27,12 @@
 
     <!-- Your Pages -->
     <TabBar>
-        <Tab Title="Browse" Icon="tab_feed.png">
-            <ShellContent ContentTemplate="{DataTemplate local:HomePage}" />
+        <Tab Title="Browse" Icon="tab_about.png">
+            <ShellContent ContentTemplate="{DataTemplate local:PendingStokis}" />
         </Tab>
         <Tab Title="About" Icon="tab_about.png">
             <ShellContent ContentTemplate="{DataTemplate local:OrderPage}" />
         </Tab>
     </TabBar>
-
-
+    
 </Shell>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:MultivendorAPP.ViewModels"
+             mc:Ignorable="d"
+             x:Class="MultivendorAPP.Views.PendingStokis">
+    <ContentPage.BindingContext>
+        <local:PendingStokisViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+
+            <StackLayout Margin="15,30,15,15">
+                <Label Text="Pending Agent" TextColor="#4AD69E" FontSize="Large" FontAttributes="Bold"/>
+            </StackLayout>
+
+            <ScrollView>
+            <StackLayout Margin="0,0,0,0">
+                    <CollectionView ItemsSource="{Binding User}" SelectedItem="{Binding SelectedTime}" SelectionMode="Single">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+
+
+                            <Grid>
+                                <StackLayout Margin="20,0,20,20" Padding="0" HorizontalOptions="FillAndExpand">
+                                    <Frame Padding="0"  CornerRadius="2" Margin="0" HeightRequest="120" HasShadow="False" BorderColor="Transparent" HorizontalOptions="FillAndExpand">
+                                        <StackLayout Padding="0"  VerticalOptions="FillAndExpand" Margin="10">
+
+                                            <StackLayout VerticalOptions="StartAndExpand">
+                                                <Label Text="{Binding name}" FontAttributes="Bold"/>
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="CenterAndExpand">
+                                                <Label Text="{Binding address}" TextColor="Gray"/>
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="EndAndExpand">
+                                                <Label Text="{Binding facebook}" TextColor="Gray"/>
+                                            </StackLayout>
+
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </Grid>
+
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+                
+            </ScrollView>
+            
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -4,6 +4,8 @@ using MultivendorAPP.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
@@ -56,6 +58,7 @@ namespace MultivendorAPP.ViewModels
         {
             Loading = false;
             Enable = true;
+            User = new Token();
             RegisterPage = new Command(GoTo);
             LoginCommand = new Command(login);
         }
@@ -68,29 +71,41 @@ namespace MultivendorAPP.ViewModels
         {
             Loading = true;
             Enable = false;
+          
+
             if (User.Email != null && User.Password != null)
             {
-                try
-                {
+              
                     var result = await _rest.Login(User.Email, User.Password);
 
                     if (result != null)
                     {
                         Preferences.Set("token", result.token);
-                        Application.Current.MainPage = new AppShell();
-                    }
+                 
+
+                            var stream = Preferences.Get("token", "");
+                            var handler = new JwtSecurityTokenHandler();
+                            var jsonToken = handler.ReadJwtToken(stream);
+                            var tokenS = handler.ReadJwtToken(stream) as JwtSecurityToken;
+
+                            var jti = tokenS.Claims.First(claim => claim.Type == "role").Value;
+                            if (jti == "Stokis")
+                            {
+                             Application.Current.MainPage = new AppShellStokis();
+                            }
+
+                            else
+                            {
+                             Application.Current.MainPage = new AppShell();
+                            }
+
+                }
 
                     else
                     {
                         await Application.Current.MainPage.DisplayAlert("Failed to login", "Check your email and password", "Okay");
                     }
-                }
-
-                catch (Exception ex)
-                {
-
-                    await Application.Current.MainPage.DisplayAlert("Ops!", ex.ToString(), "Okay");
-                }
+          
 
             }
 
