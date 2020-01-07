@@ -1,4 +1,5 @@
 ﻿using MultivendorAPP.Models;
+using MultivendorAPP.Services;
 using MultivendorAPP.Views;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,8 @@ namespace MultivendorAPP.ViewModels
     public class RegisterViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+        public IAuth _rest => DependencyService.Get<IAuth>();
+
         private List<string> vs;
 
         public List<string> LevelPicker
@@ -58,9 +61,9 @@ namespace MultivendorAPP.ViewModels
         }
 
 
-        private Users user;
+        private Register user;
 
-        public Users User
+        public Register User
         {
             get { return user; }
             set { user = value;
@@ -93,23 +96,52 @@ namespace MultivendorAPP.ViewModels
             CreateAcc = new Command(Register);
         }
 
-        private async void Register()
+        private void Register()
         {
-            User = new Users();
-            user.email = Email;
-            user.name = Name;
-            user.Password = compass;
-            user.Phone = Phone;
-            user.masterId = 0;
-            user.facebook = Facebook;
-            user.level = Level;
-            user.address = Address;
+            User = new Register();
+            User.Email = Email;
+            User.Name = Name;
+            User.Password = compass;
+            User.Phone = Phone;
+            User.MasterId = 0;
+            User.Facebook = Facebook;
+            User.Level = Level;
+            User.Address = Address;
 
-           if(user.name != null && user.email != null && user.facebook != null && user.level != null && user.address != null && user.level != null && user.Password != null)
+            if(User.Level == "Stokis")
             {
-                if (user.name != "" && user.email != "" && user.facebook != "" && user.level != "" && user.address != "" && user.level != "" && user.Password != "")
+                StokisRegister();
+            }
+
+            else
+            {
+                AgentRegister();
+            }
+
+        }
+
+        private async void StokisRegister()
+        {
+
+    
+            if (User.Name != null && User.Email != null && User.Facebook != null && User.Level != null && User.Address != null && User.Level != null && User.Password != null)
+            {
+                if (User.Name != "" && User.Email != "" && User.Facebook != "" && User.Level != "" && User.Address != "" && User.Level != "" && User.Password != "")
                 {
-                    await App.Current.MainPage.DisplayAlert("Success", "Make sure you fill all the blank", "Okay");
+                   
+                        var result = await _rest.Register(User);
+
+                        if (result)
+                        {
+
+                        }
+
+                        else
+                        {
+                            await App.Current.MainPage.DisplayAlert("Failed", "Your registration fail", "Okay");
+                        }
+                    
+                 
                 }
 
                 else
@@ -122,6 +154,12 @@ namespace MultivendorAPP.ViewModels
             {
                 await App.Current.MainPage.DisplayAlert("Ops", "Make sure you fill all the blank", "Okay");
             }
+        }
+        private async void AgentRegister()
+        {
+            AgentRegisterPage page = new AgentRegisterPage();
+            page.BindingContext = new AgentRegisterViewModel(User);
+            await App.Current.MainPage.Navigation.PushAsync(page);
         }
 
         public void CheckPassword()

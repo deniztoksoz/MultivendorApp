@@ -23,16 +23,20 @@
                     <StackLayout Margin="5">
                         <StackLayout Padding="0" >
                             <Label Text="Email" TextColor="#4AD69E" FontSize="Small" Margin="0"/>
-                            <Entry Text="" Placeholder="example@exple.com" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
+                            <Entry Text="{Binding User.Email}" Placeholder="example@exple.com" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
                         </StackLayout>
                         <StackLayout>
                             <Label Text="Password" TextColor="#4AD69E" FontSize="Small" Margin="0"/>
-                            <Entry Text="" Placeholder="example@exple.com" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
+                            <Entry Text="{Binding User.Password}" Placeholder="example@exple.com" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
                         </StackLayout>
 
-                        <StackLayout>
+                        <StackLayout IsVisible="{Binding Loading}">
+                            <ActivityIndicator Color="#4AD69E" IsRunning="True"/>
+                        </StackLayout>
+                        
+                        <StackLayout IsVisible="{Binding Enable}">
                             <Label Text="Forgot password?" TextColor="Gray" FontSize="Small" HorizontalOptions="EndAndExpand" Margin="0"/>
-                            <Button Text="sign in" BackgroundColor="#4AD69E" TextColor="White"/>
+                            <Button Text="sign in" Command="{Binding LoginCommand}" BackgroundColor="#4AD69E" TextColor="White"/>
                         </StackLayout>
 
                     </StackLayout>

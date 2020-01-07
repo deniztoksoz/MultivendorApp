@@ -40,7 +40,9 @@ namespace MultivendorAPP.Services
             return null;
         }
 
-        public async Task<bool> Register(Users user)
+
+
+        public async Task<bool> Register(Register user)
         {
             string url = base_url + "auth/register";
 

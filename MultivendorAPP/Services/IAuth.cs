@@ -9,6 +9,6 @@ namespace MultivendorAPP.Services
    public interface IAuth
     {
         Task<Token> Login(string email, string password);
-        Task<bool> Register(Users user);
+        Task<bool> Register(Register user);
     }
 }

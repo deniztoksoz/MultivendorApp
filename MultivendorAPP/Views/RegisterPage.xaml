@@ -43,7 +43,7 @@
                         <Entry Text="{Binding Facebook}" Placeholder="Johndoe" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
 
                         <Label Text="Level" TextColor="#4AD69E" FontSize="Small" Margin="0"/>
-                        <Picker Margin="0,-16,0,10" ItemsSource="{Binding LevelPicker}"  HorizontalOptions="FillAndExpand"></Picker>
+                        <Picker Margin="0,-16,0,10" ItemsSource="{Binding LevelPicker}" SelectedItem="{Binding Level}"  HorizontalOptions="FillAndExpand"></Picker>
                     </StackLayout>
                 </StackLayout>
                 
