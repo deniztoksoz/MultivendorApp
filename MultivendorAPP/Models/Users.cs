@@ -10,13 +10,11 @@ namespace MultivendorAPP.Models
             public int id { get; set; }
             public string name { get; set; }
             public string email { get; set; }
-            public string Password { get; set; }
              public string Phone { get; set; }
             public string address { get; set; }
             public string facebook { get; set; }
             public string stripeKey { get; set; }
             public string level { get; set; }
-            public List<Users> agent { get; set; }
             public int masterId { get; set; }
             public int stokisId { get; set; }
         

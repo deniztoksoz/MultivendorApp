@@ -25,19 +25,19 @@
                         <Entry Text="{Binding Name}" Placeholder="John Doe" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
 
                         <Label Text="Email" TextColor="#4AD69E" FontSize="Small" Margin="0"/>
-                        <Entry Text="{Binding Email}" Placeholder="example@exple.com" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
+                        <Entry Text="{Binding Email}" Keyboard="Email" Placeholder="example@exple.com" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
 
                         <Label Text="Password" TextColor="{Binding Error}" FontSize="Small" Margin="0"/>
-                        <Entry Text="{Binding Password}" Placeholder="******" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
+                        <Entry Text="{Binding Password}" IsPassword="True" Placeholder="******" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
 
                         <Label Text="Confirm password" TextColor="{Binding Error}" FontSize="Small" Margin="0"/>
-                        <Entry Text="{Binding Compass}" Placeholder="******" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
+                        <Entry Text="{Binding Compass}" IsPassword="True"  Placeholder="******" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
 
                         <Label Text="Address" TextColor="#4AD69E" FontSize="Small" Margin="0"/>
                         <Editor Text="{Binding Address}" AutoSize="TextChanges"  Placeholder="Address" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
 
                         <Label Text="Phone number" TextColor="#4AD69E" FontSize="Small" Margin="0"/>
-                        <Entry Text="{Binding Phone}" Placeholder="+60" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
+                        <Entry Text="{Binding Phone}" Keyboard="Telephone" Placeholder="+60" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>
 
                         <Label Text="Facebook" TextColor="#4AD69E" FontSize="Small" Margin="0"/>
                         <Entry Text="{Binding Facebook}" Placeholder="Johndoe" TextColor="Gray" Margin="0,-16,0,10" HorizontalOptions="FillAndExpand"/>

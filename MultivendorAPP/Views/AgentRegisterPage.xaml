@@ -3,13 +3,69 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              mc:Ignorable="d"
-             x:Class="MultivendorAPP.Views.AgentRegisterPage">
+             x:Class="MultivendorAPP.Views.AgentRegisterPage"
+             >
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout BackgroundColor="#F3F3F3">
+
+            <ScrollView>
+                <StackLayout VerticalOptions="StartAndExpand">
+                    <StackLayout Margin="15,30,0,0">
+                        <Label Text="Select Stokis" TextColor="#4AD69E" FontSize="Large" FontAttributes="Bold"/>
+                    </StackLayout>
+                    <StackLayout Margin="15,0,15,0">
+                        <StackLayout>
+                            <Label Text="Search by" TextColor="#4AD69E" FontSize="Small" FontAttributes="None"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Picker BackgroundColor="White" TextColor="Gray"  WidthRequest="90"/>
+                            <Entry BackgroundColor="White" PlaceholderColor="#4AD69E" Placeholder="'Iskandar'" HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                        <StackLayout>
+                            <Button Text="Search" BackgroundColor="#4AD69E" TextColor="White"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Margin="10,0,0,0">
+                        <CollectionView ItemsSource="{Binding Stokis}" SelectedItem="{Binding SelectedTime}" SelectionMode="Single">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+
+
+                                    <Grid>
+                                        <StackLayout Margin="20,0,20,20" Padding="0" HorizontalOptions="FillAndExpand">
+                                            <Frame Padding="0"  CornerRadius="2" Margin="0" HeightRequest="120" HasShadow="False" BorderColor="Transparent" HorizontalOptions="FillAndExpand">
+                                                <StackLayout Padding="0"  VerticalOptions="FillAndExpand" Margin="10">
+
+                                                    <StackLayout VerticalOptions="StartAndExpand">
+                                                        <Label Text="{Binding name}" FontAttributes="Bold"/>
+                                                    </StackLayout>
+
+                                                    <StackLayout VerticalOptions="CenterAndExpand">
+                                                        <Label Text="{Binding address}" TextColor="Gray"/>
+                                                    </StackLayout>
+
+                                                    <StackLayout VerticalOptions="EndAndExpand">
+                                                        <Label Text="{Binding facebook}" TextColor="Gray"/>
+                                                    </StackLayout>
+
+                                                </StackLayout>
+                                            </Frame>
+                                        </StackLayout>
+                                    </Grid>
+
+
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </StackLayout>      
+            </ScrollView>
+            
+            <StackLayout Margin="15">
+                <Button Text="Register" BackgroundColor="#4AD69E" TextColor="White"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

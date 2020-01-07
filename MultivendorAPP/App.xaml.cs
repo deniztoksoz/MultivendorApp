@@ -15,6 +15,7 @@ namespace MultivendorAPP
             InitializeComponent();
 
             DependencyService.Register<IAuth, Auth>();
+            DependencyService.Register<IStokis, Stokis>();
 
             if (!String.IsNullOrEmpty(Preferences.Get("token", "")))
             {
