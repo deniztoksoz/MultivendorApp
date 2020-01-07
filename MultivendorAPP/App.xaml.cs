@@ -14,6 +14,8 @@ namespace MultivendorAPP
         {
             InitializeComponent();
 
+            DependencyService.Register<IAuth, Auth>();
+
             if (!String.IsNullOrEmpty(Preferences.Get("token", "")))
             {
                 MainPage = new AppShell();
