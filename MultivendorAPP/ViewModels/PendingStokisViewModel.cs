@@ -40,6 +40,18 @@ namespace MultivendorAPP.ViewModels
 
 
 
+        private bool isBusy;
+
+        public bool isbusy
+        {
+            get { return isBusy; }
+            set { isBusy = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("isbusy"));
+            }
+        }
+
+
+
         public PendingStokisViewModel()
         {
             GetPendingAgent();

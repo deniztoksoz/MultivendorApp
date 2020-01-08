@@ -51,7 +51,8 @@
             
 
             <StackLayout Margin="15"  VerticalOptions="EndAndExpand">
-                <Button Text="Register" Command="{Binding CreateAcc}" CornerRadius="10" BackgroundColor="#4AD69E"  TextColor="White"/>
+                <ActivityIndicator Color="#4AD69E" IsRunning="True" IsVisible="{Binding isbusy}" />
+                <Button Text="Register" Command="{Binding CreateAcc}" CornerRadius="10" BackgroundColor="#4AD69E"  TextColor="White" IsVisible="{Binding isvisble}"/>
             </StackLayout>
 
 

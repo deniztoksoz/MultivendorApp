@@ -78,34 +78,44 @@ namespace MultivendorAPP.ViewModels
               
                     var result = await _rest.Login(User.Email, User.Password);
 
-                    if (result != null)
+                if (result != null)
+                {
+                    Preferences.Set("token", result.token);
+
+
+                    var stream = Preferences.Get("token", "");
+                    var handler = new JwtSecurityTokenHandler();
+                    var jsonToken = handler.ReadJwtToken(stream);
+                    var tokenS = handler.ReadJwtToken(stream) as JwtSecurityToken;
+                    var jti = tokenS.Claims.First(claim => claim.Type == "role").Value;
+                    var status = tokenS.Claims.First(claim => claim.Type == "UserData").Value;
+
+
+                    if (status != "Approve")
                     {
-                        Preferences.Set("token", result.token);
-                 
+                        if (jti == "Stokis")
+                        {
+                            Application.Current.MainPage = new AppShellStokis();
+                        }
 
-                            var stream = Preferences.Get("token", "");
-                            var handler = new JwtSecurityTokenHandler();
-                            var jsonToken = handler.ReadJwtToken(stream);
-                            var tokenS = handler.ReadJwtToken(stream) as JwtSecurityToken;
+                        else
+                        {
+                            Application.Current.MainPage = new AppShell();
+                        }
 
-                            var jti = tokenS.Claims.First(claim => claim.Type == "role").Value;
-                            if (jti == "Stokis")
-                            {
-                             Application.Current.MainPage = new AppShellStokis();
-                            }
+                    }
 
-                            else
-                            {
-                             Application.Current.MainPage = new AppShell();
-                            }
-
-                }
 
                     else
                     {
-                        await Application.Current.MainPage.DisplayAlert("Failed to login", "Check your email and password", "Okay");
+                        await Application.Current.MainPage.DisplayAlert("Failed to login", "Your account are still on review, come back later", "Okay");
                     }
-          
+                }
+
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("Failed to login", "Check your email and password", "Okay");
+                }
 
             }
 

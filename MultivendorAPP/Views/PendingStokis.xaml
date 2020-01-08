@@ -5,7 +5,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:MultivendorAPP.ViewModels"
              mc:Ignorable="d"
-             x:Class="MultivendorAPP.Views.PendingStokis">
+             x:Class="MultivendorAPP.Views.PendingStokis"
+             Shell.NavBarIsVisible="False"
+             >
     <ContentPage.BindingContext>
         <local:PendingStokisViewModel/>
     </ContentPage.BindingContext>
@@ -15,6 +17,8 @@
             <StackLayout Margin="15,30,15,15">
                 <Label Text="Pending Agent" TextColor="#4AD69E" FontSize="Large" FontAttributes="Bold"/>
             </StackLayout>
+
+            <ActivityIndicator Color="#4AD69E" IsRunning="True" IsVisible="{Binding isbusy}" />
 
             <ScrollView>
             <StackLayout Margin="0,0,0,0">

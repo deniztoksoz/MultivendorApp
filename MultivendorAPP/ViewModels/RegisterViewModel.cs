@@ -84,6 +84,26 @@ namespace MultivendorAPP.ViewModels
 
         //----
 
+        private bool isBusy;
+
+        public bool isbusy
+        {
+            get { return isBusy; }
+            set { isBusy = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("isbusy"));
+            }
+        }
+
+        private bool isVisible;
+
+        public bool isvisble
+        {
+            get { return isVisible; }
+            set { isVisible = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("isvisble"));
+            }
+        }
+
 
 
         public RegisterViewModel()
@@ -92,7 +112,8 @@ namespace MultivendorAPP.ViewModels
             LevelPicker.Add("Stokis");
             LevelPicker.Add("Agent");
             Error = "#4AD69E";
-
+            isbusy = false;
+            isvisble = true;
             CreateAcc = new Command(Register);
         }
 
@@ -122,38 +143,52 @@ namespace MultivendorAPP.ViewModels
 
         private async void StokisRegister()
         {
-
-    
-            if (User.Name != null && User.Email != null && User.Facebook != null && User.Level != null && User.Address != null && User.Level != null && User.Password != null)
+            try
             {
-                if (User.Name != "" && User.Email != "" && User.Facebook != "" && User.Level != "" && User.Address != "" && User.Level != "" && User.Password != "")
+                isbusy = true;
+                isvisble = false;
+                if (User.Name != null && User.Email != null && User.Facebook != null && User.Level != null && User.Address != null && User.Level != null && User.Password != null)
                 {
-                   
+                    if (User.Name != "" && User.Email != "" && User.Facebook != "" && User.Level != "" && User.Address != "" && User.Level != "" && User.Password != "")
+                    {
+
                         var result = await _rest.Register(User);
 
                         if (result)
                         {
-                           await App.Current.MainPage.Navigation.PushAsync(new SuccessRegister());
+                            await App.Current.MainPage.Navigation.PushAsync(new SuccessRegister());
                         }
 
                         else
                         {
                             await App.Current.MainPage.DisplayAlert("Failed", "Your registration fail", "Okay");
                         }
-                    
-                 
+
+
+                    }
+
+                    else
+                    {
+                        await App.Current.MainPage.DisplayAlert("Ops", "Make sure you fill all the blank", "Okay");
+                    }
                 }
 
                 else
                 {
                     await App.Current.MainPage.DisplayAlert("Ops", "Make sure you fill all the blank", "Okay");
                 }
+
+                isbusy = false;
+                isvisble = true;
             }
 
-            else
+            catch (Exception network)
             {
-                await App.Current.MainPage.DisplayAlert("Ops", "Make sure you fill all the blank", "Okay");
+
+                await App.Current.MainPage.DisplayAlert("Ops", network.ToString(), "Okay");
             }
+
+            
         }
         private async void AgentRegister()
         {
