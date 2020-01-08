@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -54,11 +55,13 @@ namespace MultivendorAPP.ViewModels
 
         public PendingStokisViewModel()
         {
+        
             GetPendingAgent();
         }
 
         private async void GetPendingAgent()
         {
+            isbusy = true;
             var stream = Preferences.Get("token", "");
             var handler = new JwtSecurityTokenHandler();
             var jsonToken = handler.ReadJwtToken(stream);
@@ -70,6 +73,7 @@ namespace MultivendorAPP.ViewModels
             var result = await _rest.penAgent(toInt);
 
             User = result;
+            isbusy = false;
         }
 
 
