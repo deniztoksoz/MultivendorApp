@@ -61,19 +61,28 @@ namespace MultivendorAPP.ViewModels
 
         private async void GetPendingAgent()
         {
-            isbusy = true;
-            var stream = Preferences.Get("token", "");
-            var handler = new JwtSecurityTokenHandler();
-            var jsonToken = handler.ReadJwtToken(stream);
-            var tokenS = handler.ReadJwtToken(stream) as JwtSecurityToken;
+            try
+            {
+                isbusy = true;
+                var stream = Preferences.Get("token", "");
+                var handler = new JwtSecurityTokenHandler();
+                var jsonToken = handler.ReadJwtToken(stream);
+                var tokenS = handler.ReadJwtToken(stream) as JwtSecurityToken;
 
-            var jti = tokenS.Claims.First(claim => claim.Type == "nameid").Value;
-            var toInt = Convert.ToInt32(jti);
+                var jti = tokenS.Claims.First(claim => claim.Type == "nameid").Value;
+                var toInt = Convert.ToInt32(jti);
 
-            var result = await _rest.penAgent(toInt);
+                var result = await _rest.penAgent(toInt);
 
-            User = result;
-            isbusy = false;
+                User = result;
+                isbusy = false;
+            }
+            catch (Exception ex)
+            {
+
+               await App.Current.MainPage.DisplayAlert("Approve", ex.ToString(), "Okay", "Cancel");
+            }
+          
         }
 
 

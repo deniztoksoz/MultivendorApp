@@ -15,7 +15,7 @@
         <StackLayout BackgroundColor="#F3F3F3">
 
             <StackLayout Margin="15,80,0,0">
-                <Label Text="Successful register" TextColor="#4AD69E" FontSize="Large" FontAttributes="Bold"/>
+                <Label Text="Successful register" Style="{StaticResource  Main-Title-Green}"/>
             </StackLayout>
 
             <StackLayout Margin="15" HorizontalOptions="CenterAndExpand">

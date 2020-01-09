@@ -4,9 +4,11 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="MultivendorAPP.Views.HomePage">
+             x:Class="MultivendorAPP.Views.HomePage"
+             Shell.NavBarIsVisible="False"
+             >
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Style="{StaticResource Main-Stack-Gray}">
            
         </StackLayout>
     </ContentPage.Content>

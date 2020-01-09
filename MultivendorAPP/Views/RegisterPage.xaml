@@ -12,12 +12,12 @@
         <local:RegisterViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout BackgroundColor="#F3F3F3">
+        <StackLayout Style="{StaticResource Main-Stack-Gray}">
 
             <ScrollView>
                 <StackLayout VerticalOptions="StartAndExpand">
                     <StackLayout Margin="15,30,0,0">
-                        <Label Text="Create an Account" TextColor="#4AD69E" FontSize="Large" FontAttributes="Bold"/>
+                        <Label Text="Create an Account" Style="{StaticResource  Main-Title-Green}"/>
                     </StackLayout>
 
                     <StackLayout Margin="15">
@@ -52,7 +52,7 @@
 
             <StackLayout Margin="15"  VerticalOptions="EndAndExpand">
                 <ActivityIndicator Color="#4AD69E" IsRunning="True" IsVisible="{Binding isbusy}" />
-                <Button Text="Register" Command="{Binding CreateAcc}" CornerRadius="10" BackgroundColor="#4AD69E"  TextColor="White" IsVisible="{Binding isvisble}"/>
+                <Button Text="Register" Command="{Binding CreateAcc}" CornerRadius="10" Style="{StaticResource Btn-Main}" IsVisible="{Binding isvisble}"/>
             </StackLayout>
 
 

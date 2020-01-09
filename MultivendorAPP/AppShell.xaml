@@ -20,8 +20,8 @@
                 <Setter Property="Shell.TitleColor" Value="White" />
                 <Setter Property="Shell.DisabledColor" Value="#4AD69E" />
                 <Setter Property="Shell.UnselectedColor" Value="Gray" />
-                <Setter Property="Shell.TabBarBackgroundColor" Value="#4AD69E" />
-                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarBackgroundColor" Value="White" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="#4AD69E"/>
                 <Setter Property="Shell.TabBarUnselectedColor" Value="LightGray"/>
                 <Setter Property="Shell.TabBarTitleColor" Value="White"/>
             </Style>

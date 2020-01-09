@@ -12,10 +12,10 @@
         <local:LoginViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout BackgroundColor="#F3F3F3">
+        <StackLayout Style="{StaticResource Main-Stack-Gray}">
 
             <StackLayout Margin="15,80,0,0">
-                <Label Text="Sign in" TextColor="#4AD69E" FontSize="Large" FontAttributes="Bold"/>
+                <Label Text="Sign in" Style="{StaticResource  Main-Title-Green}"/>
             </StackLayout>
 
             <StackLayout Margin="15">
@@ -36,7 +36,7 @@
                         
                         <StackLayout IsVisible="{Binding Enable}">
                             <Label Text="Forgot password?" TextColor="Gray" FontSize="Small" HorizontalOptions="EndAndExpand" Margin="0"/>
-                            <Button Text="sign in" Command="{Binding LoginCommand}" BackgroundColor="#4AD69E" TextColor="White"/>
+                            <Button Text="sign in" Command="{Binding LoginCommand}" Style="{StaticResource Btn-Main}"/>
                         </StackLayout>
 
                     </StackLayout>

@@ -13,7 +13,7 @@
             <ScrollView>
                 <StackLayout VerticalOptions="StartAndExpand">
                     <StackLayout Margin="15,30,0,0">
-                        <Label Text="Select Stokis" TextColor="#4AD69E" FontSize="Large" FontAttributes="Bold"/>
+                        <Label Text="Select Stokis" Style="{StaticResource  Main-Title-Green}"/>
                     </StackLayout>
                     <StackLayout Margin="15,0,15,0">
                         <StackLayout>
@@ -67,7 +67,7 @@
             </ScrollView>
             
             <StackLayout Margin="15">
-                <Button Text="Register" Command="{Binding RegisterCommand}" BackgroundColor="#4AD69E" TextColor="White"/>
+                <Button Text="Register" Command="{Binding RegisterCommand}" Style="{StaticResource Btn-Main}"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

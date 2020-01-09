@@ -15,7 +15,7 @@
         <StackLayout>
 
             <StackLayout Margin="15,30,15,15">
-                <Label Text="Pending Agent" TextColor="#4AD69E" FontSize="Large" FontAttributes="Bold"/>
+                <Label Text="Pending Agent" Style="{StaticResource Main-Title-Green}"/>
             </StackLayout>
 
             <ActivityIndicator Color="#4AD69E" IsRunning="True" IsVisible="{Binding isbusy}" />

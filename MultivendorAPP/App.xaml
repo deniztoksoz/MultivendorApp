@@ -6,6 +6,31 @@
              mc:Ignorable="d"
              x:Class="MultivendorAPP.App">
     <Application.Resources>
-        
+        <ResourceDictionary>
+            
+            
+            
+            <Style TargetType="StackLayout" x:Key="Main-Stack-Gray">
+                <Setter Property="BackgroundColor" Value="#F3F3F3"/>
+            </Style>
+
+            <Style TargetType="Frame" x:Key="Main-Frame-White">
+                <Setter Property="BackgroundColor" Value="#F3F3F3"/>
+            </Style>
+
+
+            <Style TargetType="Label" x:Key="Main-Title-Green">
+                <Setter Property="TextColor" Value="#4AD69E"/>
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
+            <Style TargetType="Button" x:Key="Btn-Main">
+                <Setter Property="BackgroundColor" Value="#4AD69E"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+
+
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
