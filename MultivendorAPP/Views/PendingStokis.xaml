@@ -12,7 +12,7 @@
         <local:PendingStokisViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Style="{StaticResource Main-Stack-Gray}">
 
             <StackLayout Margin="15,30,15,15">
                 <Label Text="Pending Agent" Style="{StaticResource Main-Title-Green}"/>
@@ -28,21 +28,23 @@
 
 
                             <Grid>
-                                <StackLayout Margin="20,0,20,20" Padding="0" HorizontalOptions="FillAndExpand">
+                                <StackLayout Margin="20,10,20,10" Padding="0" HorizontalOptions="FillAndExpand">
                                     <Frame Padding="0"  CornerRadius="2" Margin="0" HeightRequest="120" HasShadow="False" BorderColor="Transparent" HorizontalOptions="FillAndExpand">
                                         <StackLayout Padding="0"  VerticalOptions="FillAndExpand" Margin="10">
 
-                                            <StackLayout VerticalOptions="StartAndExpand">
+                                            <StackLayout VerticalOptions="StartAndExpand" Orientation="Horizontal">
                                                 <Label Text="{Binding name}" FontAttributes="Bold"/>
+                                                    <Label Text="{Binding Phone}" HorizontalOptions="EndAndExpand" FontAttributes="Bold"/>
                                             </StackLayout>
 
                                             <StackLayout VerticalOptions="CenterAndExpand">
                                                 <Label Text="{Binding address}" TextColor="Gray"/>
                                             </StackLayout>
 
-                                            <StackLayout VerticalOptions="EndAndExpand">
+                                                <StackLayout VerticalOptions="EndAndExpand" Orientation="Horizontal">
                                                 <Label Text="{Binding facebook}" TextColor="Gray"/>
-                                            </StackLayout>
+                                                    <Label Text="{Binding email}" HorizontalOptions="EndAndExpand" FontAttributes="Bold"/>
+                                                </StackLayout>
 
                                         </StackLayout>
                                     </Frame>

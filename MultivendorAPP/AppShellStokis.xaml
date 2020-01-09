@@ -40,7 +40,7 @@
             <ShellContent ContentTemplate="{DataTemplate local:PendingStokis}" />
         </Tab>
         <Tab Title="More" Icon="tab_about.png">
-            <ShellContent ContentTemplate="{DataTemplate local:OrderPage}" />
+            <ShellContent ContentTemplate="{DataTemplate local:MorePage}" />
         </Tab>
     </TabBar>
     
