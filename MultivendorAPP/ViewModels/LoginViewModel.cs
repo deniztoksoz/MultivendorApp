@@ -88,7 +88,7 @@ namespace MultivendorAPP.ViewModels
                     var jsonToken = handler.ReadJwtToken(stream);
                     var tokenS = handler.ReadJwtToken(stream) as JwtSecurityToken;
                     var jti = tokenS.Claims.First(claim => claim.Type == "role").Value;
-                    var status = tokenS.Claims.First(claim => claim.Type == "UserData").Value;
+                    var status = tokenS.Claims.First(claim => claim.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication").Value;
 
 
                     if (status != "Approve")
