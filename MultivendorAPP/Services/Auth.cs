@@ -37,6 +37,12 @@ namespace MultivendorAPP.Services
                 return JsonResult;
             }
 
+            if(response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+            {
+                login.token = "0";
+                return login;
+            }
+
 
             return null;
         }

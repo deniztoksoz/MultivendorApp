@@ -91,7 +91,7 @@ namespace MultivendorAPP.ViewModels
                     var status = tokenS.Claims.First(claim => claim.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication").Value;
 
 
-                    if (status != "Approve")
+                    if (status == "Approve")
                     {
                         if (jti == "Stokis")
                         {
@@ -117,7 +117,16 @@ namespace MultivendorAPP.ViewModels
                     await Application.Current.MainPage.DisplayAlert("Failed to login", "Check your email and password", "Okay");
                 }
 
+                if (result.token == "0")
+                {
+
+                    await Application.Current.MainPage.DisplayAlert("Failed to login", "Your account are still on review, come back later", "Okay");
+
+                }
+
             }
+
+          
 
             else
             {
